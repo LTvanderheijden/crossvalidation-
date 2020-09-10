@@ -1,0 +1,74 @@
+---
+title: "Cross-validation Report"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#Data input
+```{r time of analysis, echo=FALSE, comment=NA, include=FALSE}
+TIME <- analysis_time()
+print(TIME)
+```
+
+```{r names of methods, echo = FALSE, comment=NA, include=FALSE}
+method1 <- naam1()
+method2 <- naam2()
+```
+
+In this cross-validation report the bioanalytical methods  `r method1` and `r method2` are compared to each other. The cross-validation was performed on `r TIME`. The observations included in this cross-validation are reported below: 
+
+```{R data input, echo = FALSE, comment = NA}
+DF <- datainput()
+print(DF)
+```
+
+#Blant-Altman plot
+```{r bland-altman plot, echo=FALSE, comment=NA}
+plot(plot_BA())
+```
+
+#Blant-Altman statistics 
+Number of samples used in the analysis: 
+```{r number of samples, echo=FALSE, comment=NA}
+print(nobs())
+```
+
+Descriptive statistics of the included samples:
+```{r descriptive statistics, echo=FALSE, comment=NA}
+print(sum_stat())
+```
+
+Confidence of Bland-Altman parameters
+```{r confidence interval, echo=FALSE, comment=NA}
+print(precision_sum())
+```
+
+##Passing-Bablok regression
+Passing-Bablock plot
+```{r PB plot, echo=FALSE, comment = NA}
+plot(plot_PB())
+```
+
+#Passing-Bablock statistics 
+Number of samples used in the analysis:
+```{r number of samples PB, echo=FALSE, comment = NA}
+print(nobs())
+```
+
+Descriptive statistics of the included samples:
+```{r descriptive statistics PB, echo=FALSE, comment = NA}
+print(sum_PB())
+```
+
+Passing-Bablock equation
+```{r equation PB, echo=FALSE, comment = NA}
+print(formule())
+```
+
+Confidence of Passing-Bablock fit
+```{r confidence PB, echo=FALSE, comment=NA}
+print(ci_pb())
+```
